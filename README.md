@@ -6,3 +6,6 @@
 ```
 scp -P 40051 <filename> Alg19039@edaunion.ee.ntu.edu.tw:/raid4/courses/algo2019/Alg19039/<path>
 ```
+```
+ssh Alg19039@edaunion.ee.ntu.edu.tw -p 40051
+```
