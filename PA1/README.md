@@ -25,24 +25,19 @@ Then compile the demo, simply follow the following steps
 make
 ```
 
-## HOW TO RUN:
+## HOW TO RUN & VERIFY:
+Run the sorter
 ```
-cd bin/
-./bin/NTU_sort ¡V[IS|MS|QS|HS] <input_file_name> <output_file_name>
-For example,
-./bin/NTU_sort ¡VMS inputs/1000.case1.in outputs/1000.case1.out
+./bin/NTU_sort -[IS|MS|QS|HS] <input_file_name> <output_file_name>
 ```
-
-## HOW TO VERIFY RESULT
+Verify the output by given exeacutable file
 ```
-cd utility/
-./PA1_Result_Checker <input_file> <result_file_name>
-For example,
-./PA1_Result_Checker ../output/5.case1.in ../output/5.case1.out
+./utility/PA1_Result_Checker <input_file> <result_file_name>
 ```
 
 ## OTHER NOTICE:
 If your code run well for small test case but get "Segmentation fault" for the large test case, you can use the the following commend to increase the stack size to 256MB:
 ```
-ulimit -s 262144
+ulimit -a                # To list all constraints 
+ulimit -s 262144         # To change stack size to 256mb
 ```
