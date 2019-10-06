@@ -21,8 +21,25 @@ utility/  checker
 
 ## HOW TO COMPILE:
 Then compile the demo, simply follow the following steps
+```sh
+make #or make all
+#g++ -c -O2 src/sort_tool.cpp -o sort_tool_opt.o
+#g++ -c src/main.cpp -Ilib -o main_opt.o
+#g++ -c lib/tm_usage.cpp
+#ar rcv lib/libtm_usage.a tm_usage.o
+#a - tm_usage.o
+#g++ -O2 sort_tool_opt.o main_opt.o -ltm_usage -Llib -o bin/NTU_sort
+#building project
 ```
-make
+```sh
+make dbg
+#g++ -c -g -D_DEBUG_ON_ src/sort_tool.cpp -o sort_tool_dbg.o
+#g++ -c src/main.cpp -Ilib -o main_dbg.o
+#g++ -c lib/tm_usage.cpp
+#ar rcv lib/libtm_usage.a tm_usage.o
+#a - tm_usage.o
+#g++ -g -D_DEBUG_ON_ sort_tool_dbg.o main_dbg.o -ltm_usage -Llib -o bin/NTU_sort_dbg
+#building debugger
 ```
 
 ## HOW TO RUN & VERIFY:
