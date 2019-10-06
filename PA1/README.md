@@ -30,16 +30,36 @@ Run the sorter
 ```
 ./bin/NTU_sort -[IS|MS|QS|HS] <input_file_name> <output_file_name>
 ```
-Verify the output by given exeacutable file
-```
-./utility/PA1_Result_Checker <input_file> <result_file_name>
-```
 inputs and outputs
 ```
 *.[case1|case2|case3].in, where 
 case1 represents test case in random order (average case)
 case2 is test case in increasing order (best case)
 case3 is test case in reverse order (worst case)
+```
+
+## EXPERIMENT
+Use –O2 optimization and turn off all debugging message.
+```
+make -O2
+./bin/NTU_sort -[IS|MS|QS|HS] <input_file_name> <output_file_name>
+```
+comparison table  
+<img src="TBD.jpg" width=400/>
+Draw figures to show the growth of running time as a function of input size  
+<img src="TBD.jpg" width=400/>
+
+## TESTING
+Verify the output by given exeacutable file
+```
+./utility/PA1_Result_Checker <input_file> <result_file_name>
+```
+SelfCheck of homework upload
+```
+mkdir r07921001_pa1
+cp -r {src,lib,bin,doc,makefile,README.md} ./r07921001_hw2
+tar zcvf r07921001_pa1.tgz r07921001_pa1
+./utility/checkSubmitPA1.sh r07921001_hw2.tgz
 ```
 
 ## OTHER NOTICE:
