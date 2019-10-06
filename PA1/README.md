@@ -56,11 +56,6 @@ case3 is test case in reverse order (worst case)
 ```
 
 ## EXPERIMENT
-Use –O2 optimization and turn off all debugging message.
-```
-make -O2
-./bin/NTU_sort -[IS|MS|QS|HS] <input_file_name> <output_file_name>
-```
 Comparison table  
 <img src="TBD.jpg" width=400/>  
 Draw figures to show the growth of running time as a function of input size  
