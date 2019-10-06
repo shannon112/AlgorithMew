@@ -45,9 +45,9 @@ make -O2
 ./bin/NTU_sort -[IS|MS|QS|HS] <input_file_name> <output_file_name>
 ```
 comparison table  
-<img src="TBD.jpg" width=400/>
+<img src="TBD.jpg" width=400/>  
 Draw figures to show the growth of running time as a function of input size  
-<img src="TBD.jpg" width=400/>
+<img src="TBD.jpg" width=400/>  
 
 ## TESTING
 Verify the output by given exeacutable file
