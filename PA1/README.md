@@ -37,7 +37,7 @@ Verify the output by given exeacutable file
 
 ## OTHER NOTICE:
 If your code run well for small test case but get "Segmentation fault" for the large test case, you can use the the following commend to increase the stack size to 256MB:
-```
+```sh
 ulimit -a                # To list all constraints 
 ulimit -s 262144         # To change stack size to 256mb
 ```
