@@ -1,4 +1,4 @@
-# Program assignment 0: mergesort example
+# Program assignment #0: mergesort example
 This is mergesort example for NTUEE Algorithms students.  
 Author: created by CM Li, NTUEE  
 History: 2/18/2016  
