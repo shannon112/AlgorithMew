@@ -3,7 +3,7 @@ Author: Shannon Lee (李尚倫)
 Date: 2019/10/06 Sunday  
 
 ## SYNOPSIS
-This program supports four different sorting methods: insertion sort, merge sort, quick sort and heap sort.
+This program supports four different sorting methods: **insertion sort**, **merge sort**, **quick sort** and **heap sort**. All of the source code files have been already given except sort_tool.cpp. I only complete the different sorting functions of class SortTool in sort_tool.cpp
 ```
 mysort -[IS|MS|QS|HS] <input_file_name> <output_file_name>
 ```
@@ -33,6 +33,13 @@ Run the sorter
 Verify the output by given exeacutable file
 ```
 ./utility/PA1_Result_Checker <input_file> <result_file_name>
+```
+inputs and outputs
+```
+*.[case1|case2|case3].in, where 
+case1 represents test case in random order (average case)
+case2 is test case in increasing order (best case)
+case3 is test case in reverse order (worst case)
 ```
 
 ## OTHER NOTICE:
