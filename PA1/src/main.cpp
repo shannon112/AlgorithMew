@@ -8,7 +8,7 @@
 #include <cstring>
 #include <iostream>
 #include <fstream>
-#include "../lib/tm_usage.h"
+#include "../lib/tm_usage.h" //monitoring cpu time and memeory
 #include "sort_tool.h"
 
 using namespace std;
@@ -32,22 +32,25 @@ int main(int argc, char* argv[])
     CommonNs::TmStat stat;
 
     //////////// read the input file /////////////
-    
+
     char buffer[200];
-    fstream fin(argv[2]);
+    fstream fin;
     fstream fout;
-    fout.open(argv[3],ios::out);
+    fin.open(argv[2],ios::in); //read
+    if (!fin) return 1;
+    fout.open(argv[3],ios::out); //write
+    if (!fout) return 1;
     fin.getline(buffer,200);
     fin.getline(buffer,200);
     int junk,num;
     vector<int> data;
     while (fin >> junk >> num)
-        data.push_back(num); // data[0] will be the first data. 
+        data.push_back(num); // data[0] will be the first data.
                              // data[1] will be the second data and so on.
-    
+
     //////////// the sorting part ////////////////
-    tmusg.periodStart();
-    SortTool NTUSortTool; 
+    tmusg.periodStart(); //start counting performance
+    SortTool NTUSortTool;
 
     if(!strcmp(argv[1],"-QS")) {
         NTUSortTool.QuickSort(data);
@@ -66,7 +69,7 @@ int main(int argc, char* argv[])
         return 0;
     }
 
-    tmusg.getPeriodUsage(stat);
+    tmusg.getPeriodUsage(stat); //end of counting performance
     cout <<"The total CPU time: " << (stat.uTime + stat.sTime) / 1000.0 << "ms" << endl;
     cout <<"memory: " << stat.vmPeak << "KB" << endl; // print peak memory
 
