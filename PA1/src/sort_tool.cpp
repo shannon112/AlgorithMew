@@ -11,16 +11,23 @@
 // Constructor
 SortTool::SortTool() {}
 
-// Insertsion sort method
+
+/* ---------------------- */
+/* Insertsion sort method */
+/* ---------------------- */
 void SortTool::InsertionSort(vector<int>& data) {
     // Function : Insertion sort
     // TODO : Please complete insertion sort code here
 }
 
-// Quick sort method
+
+/* ----------------- */
+/* Quick sort method */
+/* ----------------- */
 void SortTool::QuickSort(vector<int>& data){
     QuickSortSubVector(data, 0, data.size() - 1);
 }
+
 // Sort subvector (Quick sort)
 void SortTool::QuickSortSubVector(vector<int>& data, int low, int high) {
     // Function : Quick sort subvector
@@ -29,13 +36,17 @@ void SortTool::QuickSortSubVector(vector<int>& data, int low, int high) {
     //        Partition function is needed
 }
 
+// Partition
 int SortTool::Partition(vector<int>& data, int low, int high) {
-    // Function : Partition the vector 
+    // Function : Partition the vector
     // TODO : Please complete the function
     // Hint : Textbook page 171
 }
 
-// Merge sort method
+
+/* ----------------- */
+/* Merge sort method */
+/* ----------------- */
 void SortTool::MergeSort(vector<int>& data){
     MergeSortSubVector(data, 0, data.size() - 1);
 }
@@ -54,7 +65,10 @@ void SortTool::Merge(vector<int>& data, int low, int middle1, int middle2, int h
     // TODO : Please complete the function
 }
 
-// Heap sort method
+
+/* ---------------- */
+/* Heap sort method */
+/* ---------------- */
 void SortTool::HeapSort(vector<int>& data) {
     // Build Max-Heap
     BuildMaxHeap(data);

@@ -19,15 +19,15 @@ class SortTool {
         void        QuickSort(vector<int>&); // sort data using quick sort
         void        HeapSort(vector<int>&); // sort data using heap sort
     private:
-        void        QuickSortSubVector(vector<int>&, int, int); // quick sort subvector
-        int         Partition(vector<int>&, int, int); // partition the subvector
-        void        MergeSortSubVector(vector<int>&, int, int); // merge sort subvector
-        void        Merge(vector<int>&, int, int, int, int); // merge two sorted subvector
-        void        MaxHeapify(vector<int>&, int); // make tree with given root be a max-heap 
+        void        QuickSortSubVector(vector<int>&, int, int); // QS: quick sort subvector
+        int         Partition(vector<int>&, int, int); // QS: partition the subvector
+        void        MergeSortSubVector(vector<int>&, int, int); // MS: merge sort subvector
+        void        Merge(vector<int>&, int, int, int, int); // MS: merge two sorted subvector
+        void        MaxHeapify(vector<int>&, int); // HS: make tree with given root be a max-heap
                                                     //if both right and left sub-tree are max-heap
-        void        BuildMaxHeap(vector<int>&); // make data become a max-heap
-        int         heapSize; // heap size used in heap sort
-        
+        void        BuildMaxHeap(vector<int>&); // HS: make data become a max-heap
+        int         heapSize; // HS: heap size used in heap sort
+
 };
 
 #endif
