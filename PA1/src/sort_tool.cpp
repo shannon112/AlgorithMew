@@ -7,6 +7,7 @@
 
 #include "sort_tool.h"
 #include<iostream>
+#include <limits>
 
 // Constructor
 SortTool::SortTool() {}
@@ -18,6 +19,15 @@ SortTool::SortTool() {}
 void SortTool::InsertionSort(vector<int>& data) {
     // Function : Insertion sort
     // TODO : Please complete insertion sort code here
+    for ( unsigned i = 1; i<data.size() ; i++ ){
+      int key = data[i];
+      int j = i-1;
+      while((j>=0) && (data[j]>key)){
+        data[j+1] = data[j];
+        j--;
+      }
+      data[j+1] = key;
+    }
 }
 
 
@@ -55,14 +65,38 @@ void SortTool::MergeSort(vector<int>& data){
 void SortTool::MergeSortSubVector(vector<int>& data, int low, int high) {
     // Function : Merge sort subvector
     // TODO : Please complete MergeSortSubVector code here
-    // Hint : recursively call itself
-    //        Merge function is needed
+    if( low < high ){
+      int mid = (high + low)/2;
+      MergeSortSubVector(data, low, mid);
+      MergeSortSubVector(data, mid+1, high);
+      Merge(data, low, mid, high);
+    }
 }
 
 // Merge
-void SortTool::Merge(vector<int>& data, int low, int middle1, int middle2, int high) {
+void SortTool::Merge(vector<int>& data, int low, int middle, int high) {
     // Function : Merge two sorted subvector
     // TODO : Please complete the function
+    int len_low = middle - low + 1;
+    int len_high = high - middle;
+    int data_low[len_low+1];
+    int data_high[len_high+1];
+    for (int i = 0; i<len_low; i++) data_low[i] = data[low+i];
+    for (int i = 0; i<len_high; i++) data_high[i] = data[middle+1+i];
+    data_low[len_low] = std::numeric_limits<int>::max();
+    data_high[len_high] = std::numeric_limits<int>::max();
+    int i=0;
+    int j=0;
+    for (int k=low; k<=high; k++){
+      if (data_low[i] <= data_high[j]){
+        data[k] = data_low[i];
+        ++i;
+      }
+      else{
+        data[k] = data_high[j];
+        ++j;
+      }
+    }
 }
 
 

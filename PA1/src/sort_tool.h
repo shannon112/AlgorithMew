@@ -22,7 +22,7 @@ class SortTool {
         void        QuickSortSubVector(vector<int>&, int, int); // QS: quick sort subvector
         int         Partition(vector<int>&, int, int); // QS: partition the subvector
         void        MergeSortSubVector(vector<int>&, int, int); // MS: merge sort subvector
-        void        Merge(vector<int>&, int, int, int, int); // MS: merge two sorted subvector
+        void        Merge(vector<int>&, int, int, int); // MS: merge two sorted subvector
         void        MaxHeapify(vector<int>&, int); // HS: make tree with given root be a max-heap
                                                     //if both right and left sub-tree are max-heap
         void        BuildMaxHeap(vector<int>&); // HS: make data become a max-heap
