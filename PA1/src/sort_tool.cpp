@@ -42,15 +42,31 @@ void SortTool::QuickSort(vector<int>& data){
 void SortTool::QuickSortSubVector(vector<int>& data, int low, int high) {
     // Function : Quick sort subvector
     // TODO : Please complete QuickSortSubVector code here
-    // Hint : recursively call itself
-    //        Partition function is needed
+    if (low < high){
+      int q = Partition(data, low, high);
+      //cout<<low<<q<<high<<endl;
+      QuickSortSubVector(data, low, q);
+      QuickSortSubVector(data, q+1, high);
+    }
 }
 
 // Partition
 int SortTool::Partition(vector<int>& data, int low, int high) {
     // Function : Partition the vector
     // TODO : Please complete the function
-    // Hint : Textbook page 171
+    int key = data[low];
+    int i = low - 1 ;
+    int j = high + 1 ;
+    while(1){
+      while(1) {--j; if(data[j]<=key) break;}
+      while(1) {++i; if(data[i]>=key) break;}
+      if( i<j ){
+        int temp = data[i];
+        data[i] = data[j];
+        data[j] = temp;
+      }
+      else return j;
+    }
 }
 
 
