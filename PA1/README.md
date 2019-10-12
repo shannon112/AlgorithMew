@@ -69,6 +69,12 @@ Comparison chart, draw figures to show the growth of running time as a function 
 <img src="https://raw.githubusercontent.com/shannon112/AlgorithMew/master/PA1/doc/comparison_chart.png" width=870/>  
 
 ## TESTING
+Visualize results
+```
+sudo apt install gnuplot-x11
+gnuplot
+gnuplot> plot "outputs/1000.case1.out"
+```
 Verify the output by given exeacutable file
 ```
 ./utility/PA1_Result_Checker <input_file> <result_file_name>
