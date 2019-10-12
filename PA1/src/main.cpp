@@ -70,6 +70,7 @@ int main(int argc, char* argv[])
     }
 
     tmusg.getPeriodUsage(stat); //end of counting performance
+    cout <<argv[1] << " " << argv[2] << endl; // print info
     cout <<"The total CPU time: " << (stat.uTime + stat.sTime) / 1000.0 << "ms" << endl;
     cout <<"memory: " << stat.vmPeak << "KB" << endl; // print peak memory
 

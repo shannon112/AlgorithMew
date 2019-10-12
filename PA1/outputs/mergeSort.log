@@ -1,0 +1,37 @@
+------------------MergeSort---------
+-MS inputs/4000.case2.in
+The total CPU time: 0ms
+memory: 13360KB
+-MS inputs/4000.case3.in
+The total CPU time: 0ms
+memory: 13360KB
+-MS inputs/4000.case1.in
+The total CPU time: 0ms
+memory: 13360KB
+-MS inputs/16000.case2.in
+The total CPU time: 0ms
+memory: 13428KB
+-MS inputs/16000.case3.in
+The total CPU time: 0ms
+memory: 13428KB
+-MS inputs/16000.case1.in
+The total CPU time: 4ms
+memory: 13428KB
+-MS inputs/32000.case2.in
+The total CPU time: 0ms
+memory: 13432KB
+-MS inputs/32000.case3.in
+The total CPU time: 0ms
+memory: 13436KB
+-MS inputs/32000.case1.in
+The total CPU time: 4ms
+memory: 13436KB
+-MS inputs/1000000.case2.in
+The total CPU time: 32ms
+memory: 21188KB
+-MS inputs/1000000.case3.in
+The total CPU time: 36ms
+memory: 21188KB
+-MS inputs/1000000.case1.in
+The total CPU time: 104ms
+memory: 21184KB

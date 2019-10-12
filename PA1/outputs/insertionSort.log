@@ -1,0 +1,37 @@
+------------------InsertionSort---------
+-IS inputs/4000.case2.in
+The total CPU time: 0ms
+memory: 13360KB
+-IS inputs/4000.case3.in
+The total CPU time: 4ms
+memory: 13360KB
+-IS inputs/4000.case1.in
+The total CPU time: 0ms
+memory: 13360KB
+-IS inputs/16000.case2.in
+The total CPU time: 0ms
+memory: 13428KB
+-IS inputs/16000.case3.in
+The total CPU time: 68ms
+memory: 13428KB
+-IS inputs/16000.case1.in
+The total CPU time: 32ms
+memory: 13428KB
+-IS inputs/32000.case2.in
+The total CPU time: 0ms
+memory: 13428KB
+-IS inputs/32000.case3.in
+The total CPU time: 260ms
+memory: 13428KB
+-IS inputs/32000.case1.in
+The total CPU time: 128ms
+memory: 13428KB
+-IS inputs/1000000.case2.in
+The total CPU time: 0ms
+memory: 19452KB
+-IS inputs/1000000.case3.in
+The total CPU time: 244412ms
+memory: 19452KB
+-IS inputs/1000000.case1.in
+The total CPU time: 123392ms
+memory: 19452KB

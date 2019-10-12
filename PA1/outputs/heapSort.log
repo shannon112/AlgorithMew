@@ -1,0 +1,37 @@
+------------------HeapSort---------
+-HS inputs/4000.case2.in
+The total CPU time: 0ms
+memory: 13360KB
+-HS inputs/4000.case3.in
+The total CPU time: 0ms
+memory: 13360KB
+-HS inputs/4000.case1.in
+The total CPU time: 0ms
+memory: 13360KB
+-HS inputs/16000.case2.in
+The total CPU time: 4ms
+memory: 13428KB
+-HS inputs/16000.case3.in
+The total CPU time: 4ms
+memory: 13428KB
+-HS inputs/16000.case1.in
+The total CPU time: 4ms
+memory: 13428KB
+-HS inputs/32000.case2.in
+The total CPU time: 0ms
+memory: 13428KB
+-HS inputs/32000.case3.in
+The total CPU time: 0ms
+memory: 13428KB
+-HS inputs/32000.case1.in
+The total CPU time: 4ms
+memory: 13428KB
+-HS inputs/1000000.case2.in
+The total CPU time: 96ms
+memory: 19452KB
+-HS inputs/1000000.case3.in
+The total CPU time: 92ms
+memory: 19452KB
+-HS inputs/1000000.case1.in
+The total CPU time: 240ms
+memory: 19452KB

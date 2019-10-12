@@ -1,0 +1,34 @@
+------------------QuickSort---------
+-QS inputs/4000.case2.in
+The total CPU time: 4ms
+memory: 13360KB
+-QS inputs/4000.case3.in
+The total CPU time: 4ms
+memory: 13360KB
+-QS inputs/4000.case1.in
+The total CPU time: 0ms
+memory: 13360KB
+-QS inputs/16000.case2.in
+The total CPU time: 80ms
+memory: 13428KB
+-QS inputs/16000.case3.in
+The total CPU time: 64ms
+memory: 13680KB
+-QS inputs/16000.case1.in
+The total CPU time: 4ms
+memory: 13428KB
+-QS inputs/32000.case2.in
+The total CPU time: 308ms
+memory: 13428KB
+-QS inputs/32000.case3.in
+The total CPU time: 248ms
+memory: 14048KB
+-QS inputs/32000.case1.in
+The total CPU time: 0ms
+memory: 13428KB
+-QS inputs/1000000.case2.in
+The total CPU time: 275744ms
+memory: 19452KB
+-QS inputs/1000000.case1.in
+The total CPU time: 88ms
+memory: 19452KB
