@@ -56,6 +56,13 @@ case3 is test case in reverse order (worst case)
 ```
 
 ## EXPERIMENT
+Check the answers correctness, and get memory usage and cpu time.
+```
+bash src/insertionSort.sh > outputs/insertionSort.log
+bash src/mergeSort.sh > outputs/mergeSort.log
+bash src/quickSort.sh > outputs/quickSort.log
+bash src/heapSort.sh > outputs/heapSort.log
+```
 Comparison table  
 <img src="TBD.jpg" width=400/>  
 Draw figures to show the growth of running time as a function of input size  
