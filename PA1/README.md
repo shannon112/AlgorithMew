@@ -64,9 +64,9 @@ bash src/quickSort.sh > outputs/quickSort.log
 bash src/heapSort.sh > outputs/heapSort.log
 ```
 Comparison table  
-<img src="TBD.jpg" width=400/>  
-Draw figures to show the growth of running time as a function of input size  
-<img src="TBD.jpg" width=400/>  
+<img src="https://raw.githubusercontent.com/shannon112/AlgorithMew/master/PA1/doc/comparison_table.png" width=870/>  
+Comparison chart, draw figures to show the growth of running time as a function of input size  
+<img src="https://raw.githubusercontent.com/shannon112/AlgorithMew/master/PA1/doc/comparison_chart.png" width=870/>  
 
 ## TESTING
 Verify the output by given exeacutable file
