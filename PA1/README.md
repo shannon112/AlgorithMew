@@ -7,6 +7,7 @@ This program supports four different sorting methods: **insertion sort**, **merg
 ```
 mysort -[IS|MS|QS|HS] <input_file_name> <output_file_name>
 ```
+<img src="https://raw.githubusercontent.com/shannon112/AlgorithMew/master/PA1/doc/theorem_result.png" width=870/>  
 
 ## DIRECTORY
 ```
@@ -75,10 +76,14 @@ sudo apt install gnuplot-x11
 gnuplot
 gnuplot> plot "outputs/1000.case1.out"
 ```
+<img src="https://raw.githubusercontent.com/shannon112/AlgorithMew/master/PA1/doc/gnuplot.png" width=210/>  
+
 Verify the output by given exeacutable file
 ```
 ./utility/PA1_Result_Checker <input_file> <result_file_name>
 ```
+<img src="https://raw.githubusercontent.com/shannon112/AlgorithMew/master/PA1/doc/selfcheckans.png" width=210/>  
+
 SelfCheck of homework upload
 ```
 mkdir r07921001_pa1
