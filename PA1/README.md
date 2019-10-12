@@ -87,9 +87,9 @@ Verify the output by given exeacutable file
 SelfCheck of homework upload
 ```
 mkdir r07921001_pa1
-cp -r {src,lib,bin,doc,makefile,README.md} ./r07921001_hw2
+cp -r {src,lib,bin,doc,makefile,README.md} ./r07921001_pa1
 tar zcvf r07921001_pa1.tgz r07921001_pa1
-./utility/checkSubmitPA1.sh r07921001_hw2.tgz
+./utility/checkSubmitPA1.sh r07921001_pa1.tgz
 ```
 
 ## OTHER NOTICE:
