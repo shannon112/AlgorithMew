@@ -82,7 +82,7 @@ tar zcvf r07921001_pa1.tgz r07921001_pa1
 ```
 
 ## OTHER NOTICE:
-If your code run well for small test case but get "Segmentation fault" for the large test case, you can use the the following commend to increase the stack size to 256MB:
+If your code run well for small test case but get "Segmentation fault" for the large test case(-IS 1000000.case3), you can use the the following commend to increase the stack size to 256MB: (NOTE: It is terminal depandent setting, turning off or new another one would not be applied)  
 ```sh
 ulimit -a                # To list all constraints 
 ulimit -s 262144         # To change stack size to 256mb
