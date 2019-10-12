@@ -99,8 +99,8 @@ void SortTool::Merge(vector<int>& data, int low, int middle, int high) {
     int data_high[len_high+1];
     for (int i = 0; i<len_low; i++) data_low[i] = data[low+i];
     for (int i = 0; i<len_high; i++) data_high[i] = data[middle+1+i];
-    data_low[len_low] = std::numeric_limits<int>::max();
-    data_high[len_high] = std::numeric_limits<int>::max();
+    data_low[len_low] = numeric_limits<int>::max();
+    data_high[len_high] = numeric_limits<int>::max();
     int i=0;
     int j=0;
     for (int k=low; k<=high; k++){
@@ -135,6 +135,15 @@ void SortTool::HeapSort(vector<int>& data) {
 void SortTool::MaxHeapify(vector<int>& data, int root) {
     // Function : Make tree with given root be a max-heap if both right and left sub-tree are max-heap
     // TODO : Please complete max-heapify code here
+    int left_idx = root*2+1;
+    int right_idx = root*2+2;
+    int largest_idx = root;
+    if ((left_idx<heapSize)&&(data[left_idx] > data[largest_idx])) largest_idx = left_idx;
+    if ((right_idx<heapSize)&&(data[right_idx] > data[largest_idx])) largest_idx = right_idx;
+    if (largest_idx != root) {
+      swap(data[root],data[largest_idx]);
+      MaxHeapify(data, largest_idx);
+    }
 }
 
 //Build max heap
@@ -142,4 +151,5 @@ void SortTool::BuildMaxHeap(vector<int>& data) {
     heapSize = data.size(); // initialize heap size
     // Function : Make input data become a max-heap
     // TODO : Please complete BuildMaxHeap code here
+    for (int i = heapSize/2 -1; i>=0; i--) MaxHeapify(data,i);
 }
