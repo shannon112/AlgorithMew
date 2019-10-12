@@ -29,6 +29,9 @@ memory: 13428KB
 -QS inputs/1000000.case2.in
 The total CPU time: 275744ms
 memory: 19452KB
+-QS inputs/1000000.case3.in
+The total CPU time: 190212ms
+memory: 31308KB
 -QS inputs/1000000.case1.in
 The total CPU time: 88ms
 memory: 19452KB
