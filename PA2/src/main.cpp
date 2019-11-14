@@ -5,6 +5,14 @@
 
 using namespace std;
 
+int vertice_num;
+int line_num;
+int **MPSpyramid;
+int **MPSchoice;
+//none:-1, full-self:-2, succDown-not-self:-3, succDown-and-self:-4, others: k 
+LineMap in_lineMap; 
+LineMap out_lineMap; 
+
 void help_message() {
     cout << "usage: mps <input_file_name> <output_file_name>" << endl;
 }
@@ -24,29 +32,32 @@ int main(int argc, char* argv[])
     fout.open(argv[2],ios::out); //write
     if (!fout) return 1;
 
-    int vertice_num;
     fin>>vertice_num;
-    int line_num = vertice_num/2;
+    line_num = vertice_num/2;
+
+    MPSpyramid = new int *[vertice_num];
+    MPSchoice = new int *[vertice_num];
+    for(int i = 0; i <vertice_num; i++){
+        MPSpyramid[i] = new int[vertice_num];
+        for (int j=0; j<vertice_num; ++j) MPSpyramid[i][j]=-1;
+        MPSchoice[i] = new int[vertice_num];
+        for (int j=0; j<vertice_num; ++j) MPSchoice[i][j]=-1;
+    }
+
     int i,j;
-    LineMap lineMap; 
-    while (fin >> i >> j)
-        lineMap.insert(LinePair(i, j));
+    while (fin >> i >> j){
+        if (i>j) in_lineMap.insert(LinePair(j, i));
+        else in_lineMap.insert(LinePair(i, j));
+    }
 
     //////////// the MPS part ////////////////
-    int **MPSpyramid = new int *[line_num];
-    int **MPSchoice = new int *[line_num];
-    for(int i = 0; i <line_num; i++){
-        MPSpyramid[i] = new int[line_num];
-        for (int j=0; j<line_num; ++j) MPSpyramid[i][j]=0;
-        MPSchoice[i] = new int[line_num];
-        for (int j=0; j<line_num; ++j) MPSchoice[i][j]=0;
-    }
-    int MPSans = maxPlanarSubset(vertice_num, lineMap, MPSpyramid, MPSchoice);
-
-    //////////// write the output file ///////////
+    int MPSans = maxPlanarSubset(0, vertice_num-1);
     fout << MPSans <<endl;
-    //for (int i = 0; i < pairs_num; i++)
-    //    fout << "i " <<pairs[i][0] << " j " <<pairs[i][1] << endl;
+    getPlanarSubset(0, vertice_num-1);
+    for(LineMap::iterator iter = out_lineMap.begin(); iter != out_lineMap.end(); ++iter){
+        fout << iter->first << " " << iter->second << endl;
+    }
+
     fin.close();
     fout.close();
     return 0;

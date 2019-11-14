@@ -1,4 +1,5 @@
 CFLAGS = -O3 -Wall -std=c++11
+#CFLAGS = -g -Wall -std=c++11
 
 mps: main.o maxPlanarSubset.o
 	g++ -o $@ main.o maxPlanarSubset.o $(CFLAGS)
