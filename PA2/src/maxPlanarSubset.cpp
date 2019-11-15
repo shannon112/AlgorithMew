@@ -1,22 +1,49 @@
 #include "maxPlanarSubset.h"
 #include <cassert>
+#include <fstream>
 
 using namespace std;
 
-extern int **MPSpyramid;
-extern int **MPSchoice;
-extern int *linearLineMap;
-extern LineMap out_lineMap;
+
+void MpsSolver::printLines(fstream& fout){
+    for(LineMap::iterator iter = outLineMap.begin(); iter != outLineMap.end(); ++iter)
+        fout << iter->first << " " << iter->second << endl;
+}
+
+void MpsSolver::fillArray(fstream& fin){
+    int i,j;
+    while (fin >> i >> j){
+        linearLineMap[i] = j;
+        linearLineMap[j] = i;
+    }
+}
+
+void MpsSolver::buildArray(){
+    MPSpyramid = new int *[verticeNum];
+    MPSchoice = new int *[verticeNum];
+    linearLineMap = new int [verticeNum];
+    for(int i = 0; i <verticeNum; i++){
+        MPSpyramid[i] = new int[verticeNum];
+        for (int j=0; j<verticeNum; ++j) MPSpyramid[i][j]=-1;
+        MPSchoice[i] = new int[verticeNum];
+        for (int j=0; j<verticeNum; ++j) MPSchoice[i][j]=-1;
+    }
+}
+
+void MpsSolver::setVerticeNum(int vertices){
+    verticeNum = vertices;
+    lineNum = vertices/2;
+}
 
 //search if i,j is a chord
-int searchLine(const int& i, const int& j){
+int MpsSolver::searchLine(const int& i, const int& j){
     int i_paired = linearLineMap[i];
     if (i_paired==j) return 1;
     return 0;
 }
 
 //M(i, j): number of chords in the maximum planar subset (shaded region)
-int maxPlanarSubset(int i, int j){
+int MpsSolver::maxPlanarSubset(int i, int j){
     int k = linearLineMap[i];
     assert(k!=i);
 
@@ -63,23 +90,24 @@ int maxPlanarSubset(int i, int j){
 }
 
 //trace back to find pairs
-void getPlanarSubset(int i, int j){
+//none:-1, full-self:-2, i+1&jsubproblem:-3, succDown-and-self:-4, others: k
+void MpsSolver::getPlanarSubset(int i, int j){
     int k = MPSchoice[i][j];
     if (i>j){
         return; //may happen at getPlanarSubset(i+1,k-1);
     }
     else if (k==-2) {
-        out_lineMap.insert(LinePair(i, j));
+        outLineMap.insert(LinePair(i, j));
     }
     else if (k==-4){
-        out_lineMap.insert(LinePair(i, j));
+        outLineMap.insert(LinePair(i, j));
         getPlanarSubset(i+1,j-1);
     }
     else if (k==-3){
         getPlanarSubset(i+1,j);
     }
     else if (k>=0){
-        out_lineMap.insert(LinePair(i, k));
+        outLineMap.insert(LinePair(i, k));
         getPlanarSubset(i+1,k-1);
         getPlanarSubset(k+1,j);
     }
