@@ -1,6 +1,6 @@
 # Promgram assignment #2: Maximum Planar Subset
-<img src="https://raw.githubusercontent.com/shannon112/AlgorithMew/master/PA2/doc/problem.png" width=870/>  
-<img src="https://raw.githubusercontent.com/shannon112/AlgorithMew/master/PA2/doc/problem2.png" width=870/>  
+<img src="https://raw.githubusercontent.com/shannon112/AlgorithMew/master/PA2/doc/problem.png" width=780/>  
+<img src="https://raw.githubusercontent.com/shannon112/AlgorithMew/master/PA2/doc/problem2.png" width=780/>  
 
 # Compile
 compile the O3 version
