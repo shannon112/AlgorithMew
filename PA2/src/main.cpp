@@ -9,6 +9,7 @@ int vertice_num;
 int line_num;
 int **MPSpyramid;
 int **MPSchoice;
+bool **lineMap;
 //none:-1, full-self:-2, succDown-not-self:-3, succDown-and-self:-4, others: k 
 LineMap in_lineMap; 
 LineMap out_lineMap; 
@@ -37,17 +38,26 @@ int main(int argc, char* argv[])
 
     MPSpyramid = new int *[vertice_num];
     MPSchoice = new int *[vertice_num];
+    lineMap = new bool *[vertice_num];
     for(int i = 0; i <vertice_num; i++){
         MPSpyramid[i] = new int[vertice_num];
         for (int j=0; j<vertice_num; ++j) MPSpyramid[i][j]=-1;
         MPSchoice[i] = new int[vertice_num];
         for (int j=0; j<vertice_num; ++j) MPSchoice[i][j]=-1;
+        lineMap[i] = new bool[vertice_num];
+        for (int j=0; j<vertice_num; ++j) lineMap[i][j]=false;
     }
 
     int i,j;
     while (fin >> i >> j){
-        if (i>j) in_lineMap.insert(LinePair(j, i));
-        else in_lineMap.insert(LinePair(i, j));
+        if (i>j) {
+            in_lineMap.insert(LinePair(j, i));
+            lineMap[j][i] = true;
+        }
+        else {
+            in_lineMap.insert(LinePair(i, j));
+            lineMap[i][j] = true;
+        }
     }
 
     //////////// the MPS part ////////////////

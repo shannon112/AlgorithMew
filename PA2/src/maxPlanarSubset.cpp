@@ -5,6 +5,7 @@ using namespace std;
 
 extern int **MPSpyramid;
 extern int **MPSchoice;
+extern bool **lineMap;
 extern LineMap in_lineMap;
 extern LineMap out_lineMap;
 
@@ -32,12 +33,13 @@ int maxPlanarSubset(int i, int j){
         MPSchoice[i][j] = -1;
     }
     else if (j==i+1) {
-        MPSpyramid[i][j] = searchLine(i,j);
+        //MPSpyramid[i][j] = searchLine(i,j);
+        MPSpyramid[i][j] = int(lineMap[i][j]);
         MPSchoice[i][j] = (MPSpyramid[i][j]) ? -2 : -1 ;
     }
     else{
         int local_max;
-        if(searchLine(i,j)){
+        if(lineMap[i][j]){
             local_max = 1 + maxPlanarSubset(i+1,j-1);
             MPSchoice[i][j] = -4;
         }
