@@ -44,16 +44,8 @@ CbSolver::writeUdGraph(fstream& fout){
     fout<<_totalWeight<<endl;
     for (size_t i = 0; i<_verticeNum; i++){
         for(auto it = _myGraph[i].begin(); it != _myGraph[i].end(); ++it){
-            //print i,j edge
-            fout << i << " "<< *it << endl;
-            //remove j,i edge
-            unsigned j = (*it).first;
-            for (auto it_in = _myGraph[j].begin(); it_in != _myGraph[j].end(); ++it_in){
-                if ((*it_in).first == i){
-                    _myGraph[j].erase(it_in);
-                    break;
-                }
-            }
+            //print i,j edge, only i>j
+            if (i>(*it).first) fout << i << " "<< *it << endl;
         }
     }
 }
@@ -66,20 +58,18 @@ CbSolver::addEdge(const unsigned i, const unsigned j, const int weight){
     _totalWeight+=weight;
 }
 
-// remove edge from adjacent list
+// remove edge from adjacent list, only i>j in undirected graph
 void
-CbSolver::rmEdge(const unsigned i, const unsigned j){
+CbSolver::rmEdge(const unsigned I, const unsigned J){
+    unsigned i = I;
+    unsigned j = J;
     if ((i==UNDEF)||(j==UNDEF)) return;
+    if (i<j) swap(i,j);
     int weight = 0;
     for (auto it = _myGraph[i].begin(); it != _myGraph[i].end(); ++it)
         if ((*it).first == j){
             weight = (*it).second;
             _myGraph[i].erase(it);
-            break;
-        }
-    for (auto it = _myGraph[j].begin(); it != _myGraph[j].end(); ++it)
-        if ((*it).first == i){
-            _myGraph[j].erase(it);
             break;
         }
     _totalWeight-=weight;
@@ -103,7 +93,7 @@ CbSolver::makeMaxSpanningTree(){
     bool* tracked = new bool[_verticeNum];
     for(size_t i=0;i<_verticeNum;++i) tracked[i] = false;
     // Insert source itself in priority queue and initialize its key as 0. 
-    maxQ.push(make_pair(0, src)); 
+    maxQ.push(make_pair(0, src));  
     key[src] = 0; 
 
     // Looping till priority queue becomes empty
