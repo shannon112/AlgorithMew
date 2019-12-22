@@ -3,11 +3,11 @@
 
 #include <fstream>
 #include <vector>
+#include <unordered_map>
 using namespace std;
 
 typedef pair<int, unsigned> Node; // (key, vertice_idx)
-typedef pair<unsigned, int>  Edge; // (j, weight)
-typedef vector<Edge> AdjacentList; // [i](j, weight)
+typedef unordered_map<unsigned, int> AdjacentList; // [i](j, weight)
 
 class CbSolver
 {
@@ -31,7 +31,6 @@ public:
    void printGraph();
    void writeUdGraph(fstream&);
    void writeDiGraph(fstream&);
-   friend ostream& operator << (ostream&, const Edge&);
    friend ostream& operator << (ostream&, const Node&);
 
 private:
