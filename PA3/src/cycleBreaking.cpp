@@ -35,6 +35,11 @@ CbSolver::printGraph(){
 // print undirected edge w/o reportinig duplicate edge
 void 
 CbSolver::writeUdGraph(fstream& fout){
+    //print 0 if there is no cycle, so no cycle breaking happean
+    if (!_totalWeight){
+        fout<<"0"<<endl;
+        return;
+    }
     //print sum of removed weight
     fout<<_totalWeight<<endl;
     for (size_t i = 0; i<_verticeNum; i++){
