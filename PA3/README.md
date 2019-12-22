@@ -45,6 +45,8 @@ run with debugging mode
 Selfcheck answer (if resulted graph is connected, and if resulted graph contains cycles)
 ```sh
 ./pa3_checker <input file name> <output file name> 
+```
+```
 # sample output
 ================================================
          Alg 2019 fall     PA3  Checker         
