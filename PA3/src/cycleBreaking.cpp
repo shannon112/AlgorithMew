@@ -8,6 +8,13 @@
 
 using namespace std;
 
+// print Edge element
+ostream&
+operator << (ostream& os, const Edge& j){
+   os << j.first << " " << j.second;
+   return os;
+}
+
 // print Node element
 ostream&
 operator << (ostream& os, const Node& j){
@@ -21,7 +28,7 @@ CbSolver::printGraph(){
     cout<<"i, j, weight"<<endl;
     for (size_t i = 0; i<_verticeNum; i++)
         for(auto it = _myGraph[i].begin(); it != _myGraph[i].end(); it++)
-            cout << i << " "<< it->first<<" "<<it->second << endl;
+            cout << i << " "<< *it << endl;
     cout<<endl;
 }
 
@@ -38,7 +45,7 @@ CbSolver::writeUdGraph(fstream& fout){
     for (size_t i = 0; i<_verticeNum; i++){
         for(auto it = _myGraph[i].begin(); it != _myGraph[i].end(); ++it){
             //print i,j edge, only i>j
-            if (i>(it->first)) fout << i << " "<< it->first<<" "<<it->second << endl;
+            if (i>(*it).first) fout << i << " "<< *it << endl;
         }
     }
 }
@@ -46,8 +53,8 @@ CbSolver::writeUdGraph(fstream& fout){
 // add edge to adjacent list
 void
 CbSolver::addEdge(const unsigned i, const unsigned j, const int weight){
-    _myGraph[i].insert(make_pair(j,weight));
-    _myGraph[j].insert(make_pair(i,weight));
+    _myGraph[i].push_back(Edge(j,weight));
+    _myGraph[j].push_back(Edge(i,weight));
     _totalWeight+=weight;
 }
 
@@ -58,9 +65,14 @@ CbSolver::rmEdge(const unsigned I, const unsigned J){
     unsigned j = J;
     if ((i==UNDEF)||(j==UNDEF)) return;
     if (i<j) swap(i,j);
-    AdjacentList::iterator it = _myGraph[i].find(j);
-    _totalWeight-=it->second;
-    _myGraph[i].erase(it);
+    int weight = 0;
+    for (auto it = _myGraph[i].begin(); it != _myGraph[i].end(); ++it)
+        if ((*it).first == j){
+            weight = (*it).second;
+            _myGraph[i].erase(it);
+            break;
+        }
+    _totalWeight-=weight;
 }
 
 // modified Prim's MST
@@ -96,8 +108,8 @@ CbSolver::makeMaxSpanningTree(){
 
             // update adjacent nodes' key value, and its parant
             for (auto it = _myGraph[u].begin(); it != _myGraph[u].end(); ++it) { 
-                unsigned v = it->first; 
-                int weight = it->second; 
+                unsigned v = (*it).first; 
+                int weight = (*it).second; 
                 if (!tracked[v] && key[v] < weight) { 
                     key[v] = weight; 
                     maxQ.push(make_pair(key[v], v)); 
