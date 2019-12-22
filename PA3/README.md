@@ -19,7 +19,7 @@ make clean
 
 # Run
 run with test case
-```
+```sh
 ./cb <input file name> <output file name> 
 # undirected
 ./cb public_cases/simple_case1.in public_cases/simple_case1.out
