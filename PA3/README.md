@@ -22,13 +22,13 @@ run with test case
 ```sh
 ./cb <input file name> <output file name> 
 # undirected
-./cb public_cases/simple_case1.in public_cases/simple_case1.out
-./cb public_cases/simple_case3.in public_cases/simple_case3.out
-./cb public_cases/simple_case3.in public_cases/public_case1.out
-./cb public_cases/simple_case3.in public_cases/public_case2.out
-./cb public_cases/simple_case3.in public_cases/public_case4.out
-./cb public_cases/simple_case3.in public_cases/public_case5.out
-./cb public_cases/simple_case3.in public_cases/public_case6.out
+./cb public_cases/simple_case1.in public_cases/simple_case1.out 
+./cb public_cases/simple_case3.in public_cases/simple_case3.out 
+./cb public_cases/simple_case3.in public_cases/public_case1.out #21
+./cb public_cases/simple_case3.in public_cases/public_case2.out #-3330
+./cb public_cases/simple_case3.in public_cases/public_case4.out #0
+./cb public_cases/simple_case3.in public_cases/public_case5.out #-90636
+./cb public_cases/simple_case3.in public_cases/public_case6.out #
 
 # directed
 ./cb public_cases/simple_case2.in public_cases/simple_case2.out
