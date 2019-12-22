@@ -1,18 +1,19 @@
 #ifndef CYCLEBREAKING_H
 #define CYCLEBREAKING_H
 
-#include <map>
+#include <fstream>
 #include <vector>
 using namespace std;
 
-typedef pair<unsigned, int>  Edge;
-typedef vector<Edge> Graph;
+typedef pair<int, unsigned> Node; // (key, vertice_idx)
+typedef pair<unsigned, int>  Edge; // (j, weight)
+typedef vector<Edge> AdjacentList; // [i](j, weight)
 
 class CbSolver
 {
 public:
     CbSolver(unsigned v, unsigned e, bool d):_verticeNum(v),_edgeNum(e),_directed(d){
-        _myGraph = new Graph[_verticeNum];
+        _myGraph = new AdjacentList[_verticeNum];
     }
     ~CbSolver(){
         delete _myGraph;
@@ -21,16 +22,25 @@ public:
    unsigned& edgeNum() { return _edgeNum; }
    const unsigned& verticeNum() const { return _verticeNum; }
    unsigned& verticeNum() { return _verticeNum; }
-   void addEdge(unsigned i, unsigned j, int w) { _myGraph[i].push_back(Edge(j,w)); }
-   void printGraph();
 
+   void addEdge(const unsigned, const unsigned, const int);
+   void rmEdge(const unsigned, const unsigned);
+
+   void makeMaxSpanningTree();
+
+   void printGraph();
+   void writeUdGraph(fstream&);
+   void writeDiGraph(fstream&);
    friend ostream& operator << (ostream&, const Edge&);
+   friend ostream& operator << (ostream&, const Node&);
 
 private:
+    int _totalWeight = 0;
     unsigned _verticeNum;
     unsigned _edgeNum;
     bool _directed;
-    Graph* _myGraph;
+    AdjacentList* _myGraph;
 };
+
 
 #endif
