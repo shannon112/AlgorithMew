@@ -29,8 +29,7 @@ public:
    void makeMaxSpanningTree();
 
    void printGraph();
-   void writeUdGraph(fstream&);
-   void writeDiGraph(fstream&);
+   void writeReGraph(fstream&);
    friend ostream& operator << (ostream&, const Edge&);
    friend ostream& operator << (ostream&, const Node&);
 

@@ -32,9 +32,10 @@ CbSolver::printGraph(){
     cout<<endl;
 }
 
-// print undirected edge w/o reportinig duplicate edge
+// print remain undirected edge w/o reportinig duplicate edge
+// print all the remain directed edge
 void 
-CbSolver::writeUdGraph(fstream& fout){
+CbSolver::writeReGraph(fstream& fout){
     //print 0 if there is no cycle, so no cycle breaking happean
     if (!_totalWeight){
         fout<<"0"<<endl;
@@ -44,8 +45,10 @@ CbSolver::writeUdGraph(fstream& fout){
     fout<<_totalWeight<<endl;
     for (size_t i = 0; i<_verticeNum; i++){
         for(auto it = _myGraph[i].begin(); it != _myGraph[i].end(); ++it){
-            //print i,j edge, only i>j
-            if (i>(*it).first) fout << i << " "<< *it << endl;
+            //print add remain edges
+            if (_directed) { fout << i << " "<< *it << endl;}
+            //print only i>j edge
+            else { if (i>(*it).first) fout << i << " "<< *it << endl;}
         }
     }
 }
@@ -54,8 +57,8 @@ CbSolver::writeUdGraph(fstream& fout){
 void
 CbSolver::addEdge(const unsigned i, const unsigned j, const int weight){
     _myGraph[i].push_back(Edge(j,weight));
-    _myGraph[j].push_back(Edge(i,weight));
     _totalWeight+=weight;
+    if(!_directed) _myGraph[j].push_back(Edge(i,weight));
 }
 
 // remove edge from adjacent list, only i>j in undirected graph
@@ -63,15 +66,15 @@ void
 CbSolver::rmEdge(const unsigned I, const unsigned J){
     unsigned i = I;
     unsigned j = J;
-    if ((i==UNDEF)||(j==UNDEF)) return;
-    if (i<j) swap(i,j);
     int weight = 0;
-    for (auto it = _myGraph[i].begin(); it != _myGraph[i].end(); ++it)
-        if ((*it).first == j){
-            weight = (*it).second;
-            _myGraph[i].erase(it);
-            break;
-        }
+    if ((i==UNDEF)||(j==UNDEF)) return;
+    if (!_directed) { if (i<j) swap(i,j); }
+        for (auto it = _myGraph[i].begin(); it != _myGraph[i].end(); ++it)
+            if ((*it).first == j){
+                weight = (*it).second;
+                _myGraph[i].erase(it);
+                break;
+            }
     _totalWeight-=weight;
 }
 

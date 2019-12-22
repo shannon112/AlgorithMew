@@ -46,7 +46,7 @@ int main(int argc, char* argv[]){
     cbsr->makeMaxSpanningTree();
 
     //write the ans to file
-    cbsr->writeUdGraph(fout);
+    cbsr->writeReGraph(fout);
     fout.close();
 
     return 0;
