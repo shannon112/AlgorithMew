@@ -130,8 +130,8 @@ CbSolver::makeMaxSpanningTree(){
     }
   
     // Print edges of MST using parent array 
-    for (int i = 1; i < _verticeNum; ++i) 
-        printf("%d - %d\n", parent[i], i); 
+    //for (int i = 1; i < _verticeNum; ++i) 
+    //    printf("%d - %d\n", parent[i], i); 
 
     delete key;
     delete parent;
