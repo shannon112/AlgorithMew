@@ -42,7 +42,7 @@ run with debugging mode
 ```
 
 # SelfCheck and upload my homework
-Selfcheck answer (if resulted graph is connected, and if resulted graph contains cycles)
+Selfcheck answer (if resulted graph is (weakly) connected, and if resulted graph contains cycles)
 ```sh
 ./pa3_checker <input file name> <output file name> 
 ```
@@ -64,3 +64,8 @@ cp -r {src,makefile,README.md} ./r07921001_pa3
 tar zcvf r07921001_pa3.tgz r07921001_pa3
 bash checkSubmitPA3.sh r07921001_pa3.tgz
 ```
+
+# Directed Graph Connectivity
+```Weakly connected```: the graph would be connected if all edges were replaced by undirected edges.  
+```Connected```: for each pair of vertices 𝑢 and 𝑣, there's a path from 𝑢 to 𝑣 or a path from 𝑣 to 𝑢 (or both).  
+```Strongly connected```: for each pair of vertices 𝑢 and 𝑣, there's a path from 𝑢 to 𝑣 and a path from 𝑣 to 𝑢.  
