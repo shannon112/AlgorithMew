@@ -32,9 +32,9 @@ run with test case
 
 # directed
 ./cb public_cases/simple_case2.in public_cases/simple_case2.out #5
-./cb public_cases/simple_case3.in public_cases/public_case3.out #725
-./cb public_cases/simple_case7.in public_cases/public_case7.out #1411
-./cb public_cases/simple_case8.in public_cases/public_case8.out #-1069
+./cb public_cases/simple_case3.in public_cases/public_case3.out #-12191
+./cb public_cases/simple_case7.in public_cases/public_case7.out #-2508
+./cb public_cases/simple_case8.in public_cases/public_case8.out #-39905
 ```
 run with debugging mode
 ```
