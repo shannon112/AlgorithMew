@@ -42,12 +42,17 @@ int main(int argc, char* argv[]){
         cbsr->addEdge(i,j,weight);
     fin.close();
 
-    //solve by Prim's MST
-    cbsr->makeMaxSpanningTree();
-
-    //write the ans to file
-    cbsr->writeReGraph(fout);
+    //undirected graph: solve by Prim's MST
+    if (!directed) {
+        cbsr->makeMaxSpanningTree();
+        cbsr->writeReGraph(fout);
+    }
+    //directed graph: solve by DFS
+    else{
+        while(1) if (!(cbsr->detectCycle())) break;
+        cbsr->writeRmEdges(fout);
+    }
+    
     fout.close();
-
     return 0;
 }

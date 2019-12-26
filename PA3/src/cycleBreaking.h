@@ -9,6 +9,12 @@ typedef pair<int, unsigned> Node; // (key, vertice_idx)
 typedef pair<unsigned, int>  Edge; // (j, weight)
 typedef vector<Edge> AdjacentList; // [i](j, weight)
 
+struct IJWEdge {
+    unsigned i;
+    unsigned j;
+    int weight;
+}; 
+
 class CbSolver
 {
 public:
@@ -28,8 +34,13 @@ public:
 
    void makeMaxSpanningTree();
 
+   bool detectCycle();
+   bool isCyclicUtil(unsigned,bool[],bool*);
+   
    void printGraph();
    void writeReGraph(fstream&);
+   void writeRmEdges(fstream&);
+   friend ostream& operator << (ostream&, const IJWEdge&);
    friend ostream& operator << (ostream&, const Edge&);
    friend ostream& operator << (ostream&, const Node&);
 
@@ -39,6 +50,12 @@ private:
     unsigned _edgeNum;
     bool _directed;
     AdjacentList* _myGraph;
+
+    //directed graph only
+    bool stopflag = false;
+    unsigned crossedPoint;
+    IJWEdge minEdge;
+    vector<IJWEdge> rmedEdge;
 };
 
 
