@@ -166,8 +166,12 @@ CbSolver::detectCycle(){
         recStack[i] = false; 
     } 
     // Call the recursive isCyclicUtil function to detect cycle in different DFS trees 
+    //cout<<"restart -----------------"<<endl;
     for(unsigned i = 0; i < _verticeNum; i++) 
-        if (isCyclicUtil(i, visited, recStack)) return true;
+        if (isCyclicUtil(i, visited, recStack)) {
+            stopflag = false;
+            return true;
+        }
     return false; 
 }
 
@@ -184,6 +188,7 @@ CbSolver::isCyclicUtil(unsigned v, bool visited[], bool *recStack)
         for(i = _myGraph[v].begin(); i != _myGraph[v].end(); ++i) { 
             // recursively find cycle
             if ( !visited[(*i).first] && isCyclicUtil((*i).first, visited, recStack) ) {
+                //cout << v << " " << (*i).first <<" w= "<< (*i).second <<endl;
                 // traceback for seeking and updating min edge 
                 if(!stopflag){
                     if ((*i).second<minEdge.weight) {
@@ -194,7 +199,7 @@ CbSolver::isCyclicUtil(unsigned v, bool visited[], bool *recStack)
                 }
                 // hit, find the cycle head
                 if (v==crossedPoint) {
-                    cout<<"find it "<<minEdge<<endl;
+                    //cout<<"find it "<<minEdge<<endl;
                     _totalWeight += minEdge.weight;
                     rmEdge(minEdge.i,minEdge.j);
                     rmedEdge.push_back(minEdge);
@@ -204,6 +209,8 @@ CbSolver::isCyclicUtil(unsigned v, bool visited[], bool *recStack)
             }
             // recursive code end, find the cycle tail
             else if (recStack[(*i).first]) {
+                //cout<<"start ============== "<<endl;
+                //cout << v << " " << (*i).first <<" w= "<< (*i).second <<endl;
                 crossedPoint = (*i).first;
                 minEdge = { v, (*i).first, (*i).second}; //initialize
                 return true; 
