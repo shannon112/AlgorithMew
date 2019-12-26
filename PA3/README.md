@@ -24,17 +24,17 @@ run with test case
 # undirected
 ./cb public_cases/simple_case1.in public_cases/simple_case1.out #8
 ./cb public_cases/simple_case3.in public_cases/simple_case3.out #22
-./cb public_cases/simple_case3.in public_cases/public_case1.out #21
-./cb public_cases/simple_case3.in public_cases/public_case2.out #-3330
-./cb public_cases/simple_case3.in public_cases/public_case4.out #0
-./cb public_cases/simple_case3.in public_cases/public_case5.out #-90636
-./cb public_cases/simple_case3.in public_cases/public_case6.out #-195222
+./cb public_cases/simple_case1.in public_cases/public_case1.out #21
+./cb public_cases/simple_case2.in public_cases/public_case2.out #-3330
+./cb public_cases/simple_case4.in public_cases/public_case4.out #0
+./cb public_cases/simple_case5.in public_cases/public_case5.out #-90636
+./cb public_cases/simple_case6.in public_cases/public_case6.out #-195222
 
 # directed
-./cb public_cases/simple_case2.in public_cases/simple_case2.out
-./cb public_cases/simple_case3.in public_cases/public_case3.out
-./cb public_cases/simple_case3.in public_cases/public_case7.out
-./cb public_cases/simple_case3.in public_cases/public_case8.out
+./cb public_cases/simple_case2.in public_cases/simple_case2.out #5
+./cb public_cases/simple_case3.in public_cases/public_case3.out #725
+./cb public_cases/simple_case7.in public_cases/public_case7.out #1411
+./cb public_cases/simple_case8.in public_cases/public_case8.out #-1069
 ```
 run with debugging mode
 ```
